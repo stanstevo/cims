@@ -38,5 +38,8 @@ public class ProductService {
     }
 
 
+    public void saveAll(List<Product> products) {
+        productRepository.saveAll(products);
+    }
 }
 
