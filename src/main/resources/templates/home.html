@@ -29,14 +29,18 @@
             <thead>
                 <tr>
                     <td>Product Id</td>
-                    <td>Name</td>
+                    <td>Description</td>
+                    <td>Quantity At Hand</td>
+                    <td>Reorder Level</td>
                     <td>Price</td>
                     <td>Edit</td>
                 </tr>
             </thead>
             <tr th:each="product:${products}">
                 <td th:text="${product.id}">Product Id</td>
-                <td th:text="${product.name}">Name</td>
+                <td th:text="${product.description}">Description</td>
+                <td th:text="${product.quantityOnHand}">Quantity On Hand</td>
+                <td th:text="${product.reorderLevel}">Reorder Level</td>
                 <td th:text="${product.price}">Price</td>
                 <td> <a class="btn btn-warning">Edit</a></td>
             </tr>

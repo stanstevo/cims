@@ -1,36 +1,36 @@
 package com.unya.cims.controller;
 
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 import com.unya.cims.entity.Product;
-import com.unya.cims.service.ProductService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-
-import javax.annotation.PostConstruct;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ProductController {
 
-    private final ProductService productService;
 
-    @Autowired
-    public ProductController(ProductService productService) {
-        this.productService = productService;
+    @GetMapping("/product")
+    public ResponseEntity<String> fetchAllProducts() {
+        return new ResponseEntity<String>(HttpStatus.OK);
     }
 
-    @GetMapping("/products")
-    public String fetchProducts(Model model) {
-
-        model.addAttribute("product", productService.getAllProducts());
-        return "home";
-
+    @GetMapping("/products/{id}/")
+    public ResponseEntity<String> getProductById(@PathVariable String id) {
+        return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @PostMapping(value = "/product", consumes = "application/json", produces = "application/json")
+    public Product createProduct(@RequestBody Product product) {
+        return product;
+    }
+    @DeleteMapping("/product/{id}")
+    public ResponseEntity<String> deleteProductById(@PathVariable String id) {
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 
 /*    @PostConstruct
     public void persistData() {

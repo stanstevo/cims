@@ -21,12 +21,6 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @GetMapping("/employees")
-    public String getEmployees(Model model) {
-        model.addAttribute("employees", employeeService.findAll());
-
-        return "employee";
-    }
    /* @PostConstruct
     public void persistData() {
         employeeService.saveAll(Stream.of("stan muthee pj2321", "alice mwari pj4345", "sunjay popat pj7437", "kevin mwiti pj5462", "irene akinyi pj2322")

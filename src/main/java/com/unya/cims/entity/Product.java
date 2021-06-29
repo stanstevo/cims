@@ -4,6 +4,7 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.Entity;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
@@ -11,7 +12,7 @@ import java.util.Objects;
 @Setter
 @ToString
 @RequiredArgsConstructor
-public class Product extends AbstractEntity{
+public class Product extends AbstractEntity {
     private String description;
 
     private int quantityOnHand;

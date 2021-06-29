@@ -21,10 +21,4 @@ public class OrdersController {
 
     }
 
-    @GetMapping("/orders")
-    public String getOrders(Model model) {
-        model.addAttribute("orders", orderService.findAll());
-        return "order";
-    }
-
 }
